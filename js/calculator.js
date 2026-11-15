@@ -10,7 +10,7 @@ const toNumber = (value) => {
  * Formula 01: customers = revenue / average order value
  * Formula 02: leads = customers * 100 / lead response rate
  * Formula 03: prospects = leads * 100 / prospect response rate
- * Rates are percentages (0-100). Results are whole people, rounded down.
+ * Rates are percentages (0-100). Results are whole people, rounded up.
  */
 export function calculateFunnel({ revenue, aov, leadRate, prospectRate }) {
   const rev = toNumber(revenue);
@@ -22,9 +22,9 @@ export function calculateFunnel({ revenue, aov, leadRate, prospectRate }) {
     return { customers: 0, leads: 0, prospects: 0 };
   }
 
-  const customers = Math.floor(rev / order);
-  const leads = Math.floor((customers * 100) / lr);
-  const prospects = Math.floor((leads * 100) / pr);
+  const customers = Math.ceil(rev / order);
+  const leads = Math.ceil((customers * 100) / lr);
+  const prospects = Math.ceil((leads * 100) / pr);
 
   return { customers, leads, prospects };
 }
