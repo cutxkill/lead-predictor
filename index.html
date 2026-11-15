@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeadPredictor</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <h1 class="logo"><span class="logo-icon" aria-hidden="true">&#9660;</span><span class="logo-lead">Lead</span>Predictor</h1>
+
+      <form class="panel settings" id="settings" autocomplete="off">
+        <div class="field">
+          <label for="language" data-i18n="language">Language</label>
+          <select id="language">
+            <option value="en">English</option>
+            <option value="bg">Български</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="currency" data-i18n="currency">Currency</label>
+          <select id="currency">
+            <option value="USD">$ US Dollar</option>
+            <option value="EUR">€ Euro</option>
+            <option value="BGN">лв Bulgarian Lev</option>
+            <option value="GBP">£ British Pound</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="start" data-i18n="campaignStart">Campaign Start</label>
+          <input type="date" id="start" value="2026-05-08">
+        </div>
+
+        <div class="field">
+          <label for="end" data-i18n="campaignEnd">Campaign End</label>
+          <input type="date" id="end" value="2026-11-04">
+        </div>
+
+        <div class="field">
+          <label for="revenue" data-i18n="totalRevenue">Total Revenue</label>
+          <div class="money">
+            <span class="currency-sign" data-currency-sign>$</span>
+            <input type="number" id="revenue" min="0" step="any" value="10000">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="aov" data-i18n="avgOrderValue">Avg. Order Value</label>
+          <div class="money">
+            <span class="currency-sign" data-currency-sign>$</span>
+            <input type="number" id="aov" min="0" step="any" value="1000">
+          </div>
+        </div>
+      </form>
+    </aside>
+
+    <main class="main">
+      <section class="panel overview">
+        <div class="chart-wrap" id="chart" role="img" aria-label="Campaign progress by month"></div>
+
+        <div class="cards">
+          <article class="card card-prospects">
+            <header><h2><span class="card-icon" aria-hidden="true">&#128193;</span><span data-i18n="prospects">Prospects</span></h2><span class="percent" id="prospects-pct">100%</span></header>
+            <p class="count" id="prospects-count">125</p>
+            <div class="bar"><div class="bar-fill" id="prospects-bar"></div></div>
+          </article>
+
+          <article class="card card-leads">
+            <header><h2><span class="card-icon" aria-hidden="true">&#128100;</span><span data-i18n="leads">Leads</span></h2><span class="percent" id="leads-pct">20%</span></header>
+            <p class="count" id="leads-count">25</p>
+            <div class="bar"><div class="bar-fill" id="leads-bar"></div></div>
+          </article>
+
+          <article class="card card-customers">
+            <header><h2><span class="card-icon" aria-hidden="true">&#127942;</span><span data-i18n="customers">Customers</span></h2><span class="percent" id="customers-pct">8%</span></header>
+            <p class="count" id="customers-count">10</p>
+            <div class="bar"><div class="bar-fill" id="customers-bar"></div></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel rates">
+        <div class="slider">
+          <label for="lead-rate" data-i18n="leadResponseRate">Lead Response Rate</label>
+          <input type="range" id="lead-rate" min="1" max="100" step="0.01" value="40">
+          <output id="lead-rate-out" for="lead-rate">40.00%</output>
+        </div>
+
+        <div class="slider">
+          <label for="prospect-rate" data-i18n="prospectResponseRate">Prospect Response Rate</label>
+          <input type="range" id="prospect-rate" min="1" max="100" step="0.01" value="20">
+          <output id="prospect-rate-out" for="prospect-rate">20.00%</output>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
