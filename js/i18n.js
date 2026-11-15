@@ -1,0 +1,43 @@
+export const translations = {
+  en: {
+    language: 'Language',
+    currency: 'Currency',
+    campaignStart: 'Campaign Start',
+    campaignEnd: 'Campaign End',
+    totalRevenue: 'Total Revenue',
+    avgOrderValue: 'Avg. Order Value',
+    prospects: 'Prospects',
+    leads: 'Leads',
+    customers: 'Customers',
+    leadResponseRate: 'Lead Response Rate',
+    prospectResponseRate: 'Prospect Response Rate',
+    months: 'Months',
+    people: (n) => `${n} people`,
+    month: 'Month',
+    locale: 'en-US',
+  },
+  bg: {
+    language: 'Език',
+    currency: 'Валута',
+    campaignStart: 'Начало на кампанията',
+    campaignEnd: 'Край на кампанията',
+    totalRevenue: 'Общ оборот',
+    avgOrderValue: 'Средна стойност на поръчката',
+    prospects: 'Контакти',
+    leads: 'Потенциални клиенти',
+    customers: 'Клиенти',
+    leadResponseRate: 'Процент на отговорите от потенциални клиенти',
+    prospectResponseRate: 'Процент на отговорите от контакти',
+    months: 'Месеци',
+    people: (n) => `${n} души`,
+    month: 'Месец',
+    locale: 'bg-BG',
+  },
+};
+
+export const currencies = {
+  USD: '$',
+  EUR: '€',
+  BGN: 'лв',
+  GBP: '£',
+};

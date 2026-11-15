@@ -1,5 +1,6 @@
 import { calculateFunnel, funnelPercentages } from './calculator.js';
-import './chart.js';
+import { setChartLabels } from './chart.js';
+import { translations, currencies } from './i18n.js';
 
 const $ = (id) => document.getElementById(id);
 
@@ -9,6 +10,32 @@ const inputs = {
   leadRate: $('lead-rate'),
   prospectRate: $('prospect-rate'),
 };
+
+let t = translations.en;
+
+function applyLanguage(code) {
+  t = translations[code] || translations.en;
+  document.documentElement.lang = code;
+  document.querySelectorAll('[data-i18n]').forEach((node) => {
+    node.textContent = t[node.dataset.i18n];
+  });
+  setChartLabels({
+    months: t.months,
+    people: t.people,
+    tooltip: (row) => [
+      `${t.month} #${row.month}`,
+      `${t.prospects}: ${row.prospects}`,
+      `${t.leads}: ${row.leads}`,
+      `${t.customers}: ${row.customers}`,
+    ],
+  });
+}
+
+function applyCurrency(code) {
+  document.querySelectorAll('[data-currency-sign]').forEach((node) => {
+    node.textContent = currencies[code] || '$';
+  });
+}
 
 export function readState() {
   return {
@@ -32,7 +59,7 @@ function updateSlider(input, output) {
 function renderCards(funnel) {
   const pct = funnelPercentages(funnel);
   for (const key of ['prospects', 'leads', 'customers']) {
-    $(`${key}-count`).textContent = funnel[key].toLocaleString('en-US');
+    $(`${key}-count`).textContent = funnel[key].toLocaleString(t.locale);
     $(`${key}-pct`).textContent = `${pct[key]}%`;
     $(`${key}-bar`).style.width = `${pct[key]}%`;
   }
@@ -49,5 +76,15 @@ export function render() {
 }
 
 $('settings').addEventListener('submit', (event) => event.preventDefault());
+
+$('language').addEventListener('change', (event) => {
+  applyLanguage(event.target.value);
+  render();
+});
+
+$('currency').addEventListener('change', (event) => applyCurrency(event.target.value));
+
 document.addEventListener('input', render);
+applyLanguage($('language').value);
+applyCurrency($('currency').value);
 render();
