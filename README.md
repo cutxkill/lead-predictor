@@ -1,34 +1,34 @@
 # LeadPredictor
 
-A simple sales-funnel calculator. Given a revenue target and an average order value it works out how many customers, leads and prospects a campaign needs, and charts the progress month by month.
+Семпъл калкулатор за продажбената фуния. Въз основа на целеви оборот и средна стойност на поръчката изчислява колко клиенти, потенциални клиенти (leads) и контакти (prospects) са необходими за една кампания и показва напредъка ѝ по месеци в диаграма.
 
-## Formulas
+## Формули
 
-1. Customers = Total Revenue / Avg. Order Value
-2. Leads = Customers * 100 / Lead Response Rate (%)
-3. Prospects = Leads * 100 / Prospect Response Rate (%)
+1. Клиенти = Общ оборот / Средна стойност на поръчката
+2. Потенциални клиенти = Клиенти * 100 / Процент на отговорите от потенциални клиенти (%)
+3. Контакти = Потенциални клиенти * 100 / Процент на отговорите от контакти (%)
 
-Example: 10000 / 1000 = 10 customers, 10 * 100 / 40 = 25 leads, 25 * 100 / 20 = 125 prospects.
+Пример: 10000 / 1000 = 10 клиенти, 10 * 100 / 40 = 25 потенциални клиенти, 25 * 100 / 20 = 125 контакти.
 
-## Features
+## Функционалности
 
-- Live recalculation when any input or slider changes
-- Cumulative stacked bar chart per campaign month with hover tooltip
-- English and Bulgarian interface, selectable currency
-- No dependencies, plain HTML/CSS/ES modules
+- Автоматично преизчисляване при промяна на всяко поле или плъзгач
+- Кумулативна хоризонтална диаграма по месеци на кампанията с подсказка при посочване
+- Интерфейс на английски и български, избираема валута
+- Без външни зависимости – чист HTML, CSS и ES модули
 
-## Run locally
+## Стартиране локално
 
-ES modules need an HTTP server, e.g. `npx serve .`, then open the printed address.
+ES модулите изискват HTTP сървър, например `npx serve .`, след което отворете показания адрес.
 
-## Tests
+## Тестове
 
 ```
 npm test
 ```
 
-## Deploy
+## Публикуване
 
-Static site, deployed on Netlify (`netlify.toml` publishes the repository root).
+Статичен сайт, публикуван в Netlify (`netlify.toml` публикува корена на хранилището).
 
-Live demo: https://lead-predictor-cutxkill.netlify.app
+Онлайн версия: https://lead-predictor-cutxkill.netlify.app
