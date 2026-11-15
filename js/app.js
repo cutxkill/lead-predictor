@@ -1,4 +1,5 @@
 import { calculateFunnel, funnelPercentages } from './calculator.js';
+import './chart.js';
 
 const $ = (id) => document.getElementById(id);
 
