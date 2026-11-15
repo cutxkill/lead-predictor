@@ -30,3 +30,5 @@ npm test
 ## Deploy
 
 Static site, deployed on Netlify (`netlify.toml` publishes the repository root).
+
+Live demo: https://lead-predictor-cutxkill.netlify.app
